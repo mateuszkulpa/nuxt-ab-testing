@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "nuxt-ab-testing-playground",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate"
+  },
+  "dependencies": {
+    "nuxt": "latest"
+  }
+}
