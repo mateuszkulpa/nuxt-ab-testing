@@ -11,5 +11,5 @@ export type JSONArray = JSONValue[]
 
 export interface Variant<TVal extends JSONValue> {
   id: string
-  value?: TVal
+  value: TVal
 }

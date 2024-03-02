@@ -35,5 +35,28 @@
         <button>{{ value }}</button>
       </template>
     </ABTest>
+
+    <hr>
+
+    <h2>Component with inline variants with values as objects</h2>
+
+    <ABTest
+      id="inline-object-values"
+      :variants="[
+        {id: 'red', value: {background: 'red', color: 'yellow'}},
+        {id: 'green', value: {background: 'green', color: 'white'}},
+      ]"
+    >
+      <template #red="{ value }">
+        <button :style="value">
+          {{ value.background }}
+        </button>
+      </template>
+      <template #green="{ value }">
+        <button :style="value">
+          {{ value.background }}
+        </button>
+      </template>
+    </ABTest>
   </div>
 </template>
