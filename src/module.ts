@@ -6,6 +6,12 @@ import {
 } from '@nuxt/kit'
 
 export interface ModuleOptions {
+  /**
+   * Determines whether to persist A/B test variants across user sessions.
+   * If enabled (true), the assigned variant is stored in a cookie on the user's device
+   *
+   * @default true
+   */
   persistVariants: boolean
 }
 
