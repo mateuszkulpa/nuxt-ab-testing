@@ -1,6 +1,6 @@
 <script setup lang="ts" generic="TValue extends JSONValue">
 import type { JSONValue, Variant } from '../types/variant'
-import { useCookie, useState } from '#imports'
+import { useCookie, useState, useRuntimeConfig } from '#imports'
 
 const props = defineProps<{
   id: string
