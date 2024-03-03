@@ -36,15 +36,9 @@ const randomVariant = getRandomVariant()
 </script>
 
 <template>
-  <template
-    v-for="variant in variants"
-    :key="variant.id"
-  >
+  <template v-for="variant in variants" :key="variant.id">
     <template v-if="randomVariant.id === variant.id">
-      <slot
-        :name="variant.id"
-        v-bind="variant"
-      />
+      <slot :name="variant.id" v-bind="variant" />
     </template>
   </template>
 </template>

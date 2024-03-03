@@ -2,14 +2,14 @@
   <div>
     <h1>Nuxt A/B Testing module playground</h1>
 
-    <hr>
+    <hr />
 
     <h2>Component with inline variants</h2>
     <ABTest
       id="inline-values"
       :variants="[
         { id: 'sign-up', value: 'Sign Up Now!' },
-        { id: 'join-free', value: 'Join Free for a Month' }
+        { id: 'join-free', value: 'Join Free for a Month' },
       ]"
     >
       <template #sign-up="{ value }">
@@ -20,7 +20,7 @@
       </template>
     </ABTest>
 
-    <hr>
+    <hr />
 
     <h2>Component with inline variants as objects</h2>
 
@@ -28,7 +28,7 @@
       id="inline-object-values"
       :variants="[
         { id: 'red', value: { background: 'red', color: 'yellow' } },
-        { id: 'green', value: { background: 'green', color: 'white' } }
+        { id: 'green', value: { background: 'green', color: 'white' } },
       ]"
     >
       <template #red="{ value }">

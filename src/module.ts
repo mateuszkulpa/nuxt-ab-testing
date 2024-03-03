@@ -1,9 +1,4 @@
-import {
-  addComponentsDir,
-  addPlugin,
-  createResolver,
-  defineNuxtModule
-} from '@nuxt/kit'
+import { addComponentsDir, addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit'
 
 export interface ModuleOptions {
   /**
@@ -18,21 +13,21 @@ export interface ModuleOptions {
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-ab-testing',
-    configKey: 'abTesting'
+    configKey: 'abTesting',
   },
   defaults: {
-    persistVariants: true
+    persistVariants: true,
   },
   async setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
     addPlugin(resolver.resolve('./runtime/plugin'))
 
     await addComponentsDir({
-      path: resolver.resolve('./runtime/components')
+      path: resolver.resolve('./runtime/components'),
     })
 
     nuxt.options.runtimeConfig.public.abTesting = {
-      persistVariants: options.persistVariants
+      persistVariants: options.persistVariants,
     }
-  }
+  },
 })
