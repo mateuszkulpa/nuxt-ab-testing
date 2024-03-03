@@ -42,5 +42,21 @@
         </button>
       </template>
     </ABTest>
+
+    <hr />
+
+    <h2>Composable</h2>
+    <div>variant: {{ selectedVariant.value }}</div>
   </div>
 </template>
+
+<script setup lang="ts">
+const selectedVariant = useABTest({
+  id: 'composable-example',
+  variants: [
+    { id: 'variant-1', value: 'Variant 1' },
+    { id: 'variant-2', value: 'Variant 2' },
+    { id: 'variant-3', value: 'Variant 3' },
+  ],
+})
+</script>

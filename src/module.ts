@@ -1,4 +1,4 @@
-import { addComponentsDir, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addComponentsDir, addImportsDir, createResolver, defineNuxtModule } from '@nuxt/kit'
 
 export interface ModuleOptions {
   /**
@@ -24,6 +24,8 @@ export default defineNuxtModule<ModuleOptions>({
     await addComponentsDir({
       path: resolver.resolve('./runtime/components'),
     })
+
+    addImportsDir(resolver.resolve('./runtime/composables'))
 
     nuxt.options.runtimeConfig.public.abTesting = {
       persistVariants: options.persistVariants,
