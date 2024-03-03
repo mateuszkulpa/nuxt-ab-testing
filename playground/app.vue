@@ -6,22 +6,6 @@
 
     <h2>Component with inline variants</h2>
     <ABTest
-      id="inline"
-      :variants="[{ id: 'a' }, { id: 'b' }]"
-    >
-      <template #a>
-        <button>Variant A</button>
-      </template>
-
-      <template #b>
-        <button>Variant B</button>
-      </template>
-    </ABTest>
-
-    <hr>
-
-    <h2>Component with inline variants with values</h2>
-    <ABTest
       id="inline-values"
       :variants="[
         { id: 'sign-up', value: 'Sign Up Now!' },
@@ -38,13 +22,13 @@
 
     <hr>
 
-    <h2>Component with inline variants with values as objects</h2>
+    <h2>Component with inline variants as objects</h2>
 
     <ABTest
       id="inline-object-values"
       :variants="[
-        {id: 'red', value: {background: 'red', color: 'yellow'}},
-        {id: 'green', value: {background: 'green', color: 'white'}},
+        { id: 'red', value: { background: 'red', color: 'yellow' } },
+        { id: 'green', value: { background: 'green', color: 'white' } }
       ]"
     >
       <template #red="{ value }">
