@@ -1,4 +1,4 @@
-import { addComponentsDir, addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addComponentsDir, createResolver, defineNuxtModule } from '@nuxt/kit'
 
 export interface ModuleOptions {
   /**
@@ -20,7 +20,6 @@ export default defineNuxtModule<ModuleOptions>({
   },
   async setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
-    addPlugin(resolver.resolve('./runtime/plugin'))
 
     await addComponentsDir({
       path: resolver.resolve('./runtime/components'),
