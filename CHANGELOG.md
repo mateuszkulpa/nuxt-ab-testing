@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.3
+
+[compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.2...v0.0.3)
+
+### 🩹 Fixes
+
+- Missing `useRuntimeConfig` import ([db13a14](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/db13a14))
+
+### 📖 Documentation
+
+- Add initial project documentation ([e00497e](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/e00497e))
+
+### ❤️ Contributors
+
+- Mateusz Kulpa ([@mateuszkulpa](http://github.com/mateuszkulpa))
+
 ## v0.0.2
 
 [compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.1...v0.0.2)
