@@ -1,4 +1,4 @@
-import { useCookie, useState } from '#imports'
+import { useCookie, useState, useRuntimeConfig } from '#imports'
 import type { ABTest, JSONValue, Variant } from '../types'
 
 export function useABTest<TVariantValue extends JSONValue>(abTest: ABTest<TVariantValue>) {
