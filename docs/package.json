@@ -1,0 +1,19 @@
+{
+  "name": "nuxt-ab-testing-docs",
+  "private": true,
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate",
+    "preview": "nuxi preview",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@nuxt-themes/docus": "latest",
+    "@nuxt/devtools": "latest",
+    "@nuxt/eslint-config": "^0.2.0",
+    "@types/node": "^20.11.22",
+    "eslint": "^8.57.0",
+    "nuxt": "^3.10.3"
+  }
+}
