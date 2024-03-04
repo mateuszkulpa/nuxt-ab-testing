@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.0.2
+
+[compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.1...v0.0.2)
+
+### 🚀 Enhancements
+
+- Add `useABTest` composable ([09e8e63](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/09e8e63))
+
+### 💅 Refactors
+
+- Remove unused plugin ([37e587c](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/37e587c))
+
+### 🏡 Chore
+
+- Update keywords in package.json ([b5765a7](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/b5765a7))
+
+### ❤️ Contributors
+
+- Mateusz Kulpa ([@mateuszkulpa](http://github.com/mateuszkulpa))
+
 ## v0.0.1
 
 
