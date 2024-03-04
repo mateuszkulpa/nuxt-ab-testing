@@ -4,6 +4,14 @@
   "description": "Nuxt module designed to seamlessly integrate A/B testing",
   "repository": "mateuszkulpa/nuxt-ab-testing",
   "license": "MIT",
+  "keywords": [
+    "nuxt",
+    "module",
+    "nuxt-module",
+    "vue",
+    "ab-testing",
+    "experimentation"
+  ],
   "type": "module",
   "exports": {
     ".": {
