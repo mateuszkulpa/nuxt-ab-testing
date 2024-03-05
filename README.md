@@ -10,7 +10,6 @@
 Nuxt module designed to seamlessly integrate A/B testing.
 
 - [✨ Release Notes](/CHANGELOG.md)
-- [🏀 Online playground](https://stackblitz.com/github/mateuszkulpa/nuxt-ab-testing?file=playground%2Fapp.vue)
 - [📖 Documentation](https://nuxt-ab-testing.vercel.app)
 
 ## Planned features
