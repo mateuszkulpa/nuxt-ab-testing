@@ -45,6 +45,25 @@
 
     <hr />
 
+    <h2>Component with inline weighted variants</h2>
+
+    <ABTest
+      id="inline-weighted-values"
+      :variants="[
+        { id: 'a', value: '10%', weight: 0.1 },
+        { id: 'b', value: '90%', weight: 0.9 },
+      ]"
+    >
+      <template #a="{ value }">
+        {{ value }}
+      </template>
+      <template #b="{ value }">
+        {{ value }}
+      </template>
+    </ABTest>
+
+    <hr />
+
     <h2>Composable</h2>
     <div>variant: {{ selectedVariant.value }}</div>
   </div>

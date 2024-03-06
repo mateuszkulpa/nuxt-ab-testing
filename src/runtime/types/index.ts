@@ -16,6 +16,7 @@ export type JSONArray = JSONValue[]
 export interface Variant<TVariantValue extends JSONValue> {
   id: string
   value: TVariantValue
+  weight?: number
 }
 
 export interface ABTest<TVariantValue extends JSONValue> {
