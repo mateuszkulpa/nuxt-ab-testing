@@ -14,6 +14,9 @@ export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-ab-testing',
     configKey: 'abTesting',
+    compatibility: {
+      nuxt: '^3.0.0',
+    },
   },
   defaults: {
     persistVariants: true,
