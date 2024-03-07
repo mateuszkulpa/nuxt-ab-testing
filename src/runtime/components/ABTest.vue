@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="TVariantValue extends JSONValue">
-import { useABTest } from '../composables/useABTest'
+import { useABTest } from '#imports'
 import type { JSONValue, Variant } from '../types'
 
 const props = defineProps<{
