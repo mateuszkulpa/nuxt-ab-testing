@@ -1,6 +1,31 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.3...v0.0.4)
+
+### 🚀 Enhancements
+
+- Support weighted variants ([85961ac](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/85961ac))
+
+### 📖 Documentation
+
+- Remove online playground link ([0f7fcb6](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/0f7fcb6))
+
+### 🏡 Chore
+
+- Set nuxt compability version ([0e74e7f](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/0e74e7f))
+- Run tests before release ([d5a7254](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/d5a7254))
+
+### ✅ Tests
+
+- Add test cases for `pickRandomVariant` function ([023f5e5](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/023f5e5))
+
+### ❤️ Contributors
+
+- Mateusz Kulpa ([@mateuszkulpa](http://github.com/mateuszkulpa))
+
 ## v0.0.3
 
 [compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.2...v0.0.3)
