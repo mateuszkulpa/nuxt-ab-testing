@@ -19,7 +19,7 @@ export interface Variant<TVariantValue extends JSONValue> {
   weight?: number
 }
 
-export interface ABTest<TVariantValue extends JSONValue> {
+export interface ABTest<TVariantValue extends JSONValue = JSONValue> {
   id: string
   variants: Variant<TVariantValue>[]
 }
