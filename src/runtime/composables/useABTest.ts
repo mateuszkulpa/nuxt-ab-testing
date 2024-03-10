@@ -2,7 +2,9 @@ import { useCookie, useState, useRuntimeConfig } from '#imports'
 import type { ABTest, JSONValue, Variant } from '../types'
 import { pickRandomVariant } from '../core/variants'
 
-export function useABTest<TVariantValue extends JSONValue>(abTest: ABTest<TVariantValue>) {
+export function useABTest<TVariantValue extends JSONValue>(
+  abTest: ABTest<TVariantValue>
+): Variant<TVariantValue> {
   const storageId = `ab-test:${abTest.id}`
 
   const runtimeConfig = useRuntimeConfig()
