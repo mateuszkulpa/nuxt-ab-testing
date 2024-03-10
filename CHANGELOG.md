@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.4...v0.0.5)
+
+### 🚀 Enhancements
+
+- Implement auto-generated composables based on module config ([b55323c](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/b55323c))
+
+### 🩹 Fixes
+
+- Add missing return type to useABTest composable ([7f862fb](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/7f862fb))
+
+### ✅ Tests
+
+- Add tests for auto-generated composables ([8cd9e9a](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/8cd9e9a))
+
+### ❤️ Contributors
+
+- Mateusz Kulpa ([@mateuszkulpa](http://github.com/mateuszkulpa))
+
 ## v0.0.4
 
 [compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.3...v0.0.4)
