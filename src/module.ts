@@ -59,12 +59,12 @@ export default defineNuxtModule<ModuleOptions>({
         filename: path.join('ab-test-components', `${componentName}.vue`),
         write: true,
         getContents: () => `<template>
-          <ABTest id='${test.id}' :variants='${JSON.stringify(test.variants)}'>
-              <template v-for="(_, name) in $slots" v-slot:[name]="slotData">
-                  <slot :name="name" v-bind="slotData" />
-              </template>
-          </ABTest>
-      </template>`,
+  <ABTest id='${test.id}' :variants='${JSON.stringify(test.variants)}'>
+    <template v-for="(_, name) in $slots" v-slot:[name]="slotData">
+      <slot :name="name" v-bind="slotData" />
+    </template>
+  </ABTest>
+</template>`,
       })
 
       await addComponent({
