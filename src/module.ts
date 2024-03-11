@@ -1,4 +1,5 @@
 import {
+  addComponent,
   addComponentsDir,
   addImports,
   addImportsDir,
@@ -8,6 +9,7 @@ import {
 } from '@nuxt/kit'
 import type { ABTest } from './runtime/types'
 import { pascalCase } from 'scule'
+import path from 'pathe'
 
 export interface ModuleOptions {
   /**
@@ -48,7 +50,29 @@ export default defineNuxtModule<ModuleOptions>({
     addImportsDir(resolver.resolve('./runtime/composables'))
 
     const composables: string[] = []
+
     for (const test of options.tests) {
+      // generate components
+      const componentName = `${pascalCase(test.id)}ABTest`
+
+      addTemplate({
+        filename: path.join('ab-test-components', `${componentName}.vue`),
+        write: true,
+        getContents: () => `<template>
+          <ABTest id='${test.id}' :variants='${JSON.stringify(test.variants)}'>
+              <template v-for="(_, name) in $slots" v-slot:[name]="slotData">
+                  <slot :name="name" v-bind="slotData" />
+              </template>
+          </ABTest>
+      </template>`,
+      })
+
+      await addComponent({
+        name: componentName,
+        filePath: path.join('#build', 'ab-test-components', `${componentName}.vue`),
+      })
+
+      // generate composables
       const composableName = `use${pascalCase(test.id)}ABTest`
       addImports({
         from: '#build/ab-test-composables',
@@ -58,6 +82,7 @@ export default defineNuxtModule<ModuleOptions>({
   return useABTest(${JSON.stringify(test)});
 }`)
     }
+
     addTemplate({
       filename: `./ab-test-composables.ts`,
       write: true,
