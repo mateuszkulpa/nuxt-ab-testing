@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.6
+
+[compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.5...v0.0.6)
+
+### 🚀 Enhancements
+
+- Implement auto-generated components based on module config ([43eb655](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/43eb655))
+
+### ❤️ Contributors
+
+- Mateusz Kulpa ([@mateuszkulpa](http://github.com/mateuszkulpa))
+
 ## v0.0.5
 
 [compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.4...v0.0.5)
