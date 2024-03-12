@@ -28,4 +28,32 @@ describe('useABTest', () => {
       expect(selectedVariant).toEqual(expected)
     }
   )
+
+  test('returns default variant when ab test is not enabled', () => {
+    const selectedVariant = pickRandomVariant({
+      id: 'test-id',
+      variants: [
+        { id: 'a', value: 'a' },
+        { id: 'b', value: 'b' },
+      ],
+      enabled: false,
+      default: 'a',
+    })
+
+    expect(selectedVariant).toEqual({ id: 'a', value: 'a' })
+  })
+
+  test('throws error when default variant is not provided and ab test is not enabled', () => {
+    expect(() => {
+      pickRandomVariant({
+        id: 'test-id',
+        variants: [
+          { id: 'a', value: 'a' },
+          { id: 'b', value: 'b' },
+        ],
+        enabled: false,
+        default: 'c',
+      })
+    }).toThrow('No default variant found')
+  })
 })

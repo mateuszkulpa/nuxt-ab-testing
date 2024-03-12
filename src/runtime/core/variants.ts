@@ -3,6 +3,14 @@ import type { ABTest, JSONValue, Variant } from '~/src/runtime/types'
 export function pickRandomVariant<TVariantValue extends JSONValue>(
   abTest: ABTest<TVariantValue>
 ): Variant<TVariantValue> {
+  if (abTest.enabled === false) {
+    const defaultVariant = abTest.variants.find(({ id }) => id === abTest.default)
+    if (defaultVariant === undefined) {
+      throw new Error('No default variant found')
+    }
+    return defaultVariant
+  }
+
   if (abTest.variants.every(variant => variant.weight === undefined)) {
     return abTest.variants[Math.floor(Math.random() * abTest.variants.length)]
   }
