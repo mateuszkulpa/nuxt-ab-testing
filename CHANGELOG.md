@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.7
+
+[compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.6...v0.0.7)
+
+### 🚀 Enhancements
+
+- Add support for disabling tests and retrieving default values ([323dd73](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/323dd73))
+
+### 🩹 Fixes
+
+- Formatting of auto-generated components ([38d8374](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/38d8374))
+
+### ❤️ Contributors
+
+- Mateusz Kulpa ([@mateuszkulpa](http://github.com/mateuszkulpa))
+
 ## v0.0.6
 
 [compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.5...v0.0.6)
