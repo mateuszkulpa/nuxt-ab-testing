@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="TVariantValue extends JSONValue">
-import { useABTest } from '#imports'
+import { useABTest } from '../composables/useABTest'
 import type { JSONValue, Variant } from '../types'
 
 const props = defineProps<{
@@ -10,6 +10,14 @@ const props = defineProps<{
 const selectedVariant = useABTest<TVariantValue>({
   id: props.id,
   variants: props.variants,
+})
+
+const slots = useSlots()
+
+props.variants.forEach(variant => {
+  if (!(variant.id in slots)) {
+    console.warn(`nuxt-ab-testing: Missing slot "${variant.id}" for ${props.id} A/B test`)
+  }
 })
 </script>
 
