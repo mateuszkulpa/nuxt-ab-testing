@@ -1,6 +1,32 @@
 # Changelog
 
 
+## v0.0.8
+
+[compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.7...v0.0.8)
+
+### 🚀 Enhancements
+
+- Add warnings for missing variant slots ([88ed457](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/88ed457))
+
+### 💅 Refactors
+
+- Return `enabled` property from `useABTest` composable ([400453a](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/400453a))
+
+### 🏡 Chore
+
+- Update packages ([c66a9ec](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/c66a9ec))
+- Remove unused type import ([12d0ae3](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/12d0ae3))
+
+### ✅ Tests
+
+- Add ABTest component test ([5d9c070](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/5d9c070))
+- Add test for warning when slot is not defined ([5323a8d](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/5323a8d))
+
+### ❤️ Contributors
+
+- Mateusz Kulpa ([@mateuszkulpa](http://github.com/mateuszkulpa))
+
 ## v0.0.7
 
 [compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.6...v0.0.7)
