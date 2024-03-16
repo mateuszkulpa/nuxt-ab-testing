@@ -1,4 +1,4 @@
-import type { ABTest, ABTestResult, JSONValue, ResolvedVariant } from '~/src/runtime/types'
+import type { ABTest, ABTestResult, JSONValue } from '~/src/runtime/types'
 
 export function resolveABTestVariant<TVariantValue extends JSONValue>(
   abTest: ABTest<TVariantValue>
