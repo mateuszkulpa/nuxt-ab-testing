@@ -65,12 +65,12 @@
     <hr />
 
     <h2>Composable</h2>
-    <div>variant: {{ selectedVariant.value }}</div>
+    <div v-if="composableResult.enabled">variant: {{ composableResult.result.value }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
-const selectedVariant = useABTest({
+const composableResult = useABTest({
   id: 'composable-example',
   variants: [
     { id: 'variant-1', value: 'Variant 1' },

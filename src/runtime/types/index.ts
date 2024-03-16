@@ -19,6 +19,25 @@ export interface Variant<TVariantValue extends JSONValue> {
   weight?: number
 }
 
+export interface ResolvedVariant<TVariantValue extends JSONValue> {
+  id: string
+  value: TVariantValue
+}
+
+export interface ABTestResultEnabled<TVariantValue extends JSONValue> {
+  enabled: true
+  result: ResolvedVariant<TVariantValue>
+}
+
+export interface ABTestResultDisabled<TVariantValue extends JSONValue> {
+  enabled: false
+  result?: ResolvedVariant<TVariantValue>
+}
+
+export type ABTestResult<TVariantValue extends JSONValue> =
+  | ABTestResultEnabled<TVariantValue>
+  | ABTestResultDisabled<TVariantValue>
+
 export interface ABTest<TVariantValue extends JSONValue = JSONValue> {
   id: string
   variants: Variant<TVariantValue>[]

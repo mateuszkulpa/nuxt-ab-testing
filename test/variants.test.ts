@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { pickRandomVariant } from '~/src/runtime/core/variants'
+import { resolveABTestVariant } from '~/src/runtime/core/variants'
 
 describe('useABTest', () => {
   const testCases = [
@@ -18,19 +18,21 @@ describe('useABTest', () => {
       mockMath.random = () => randomValue
       global.Math = mockMath
 
-      const selectedVariant = pickRandomVariant({
+      const selectedVariant = resolveABTestVariant({
         id: 'test-id',
         variants: [
           { id: 'a', value: 'a' },
           { id: 'b', value: 'b' },
         ],
       })
-      expect(selectedVariant).toEqual(expected)
+
+      expect(selectedVariant.enabled).toBe(true)
+      expect(selectedVariant.result).toEqual(expected)
     }
   )
 
   test('returns default variant when ab test is not enabled', () => {
-    const selectedVariant = pickRandomVariant({
+    const result = resolveABTestVariant({
       id: 'test-id',
       variants: [
         { id: 'a', value: 'a' },
@@ -40,20 +42,19 @@ describe('useABTest', () => {
       default: 'a',
     })
 
-    expect(selectedVariant).toEqual({ id: 'a', value: 'a' })
+    expect(result).toEqual({ enabled: false, result: { id: 'a', value: 'a' } })
   })
 
-  test('throws error when default variant is not provided and ab test is not enabled', () => {
-    expect(() => {
-      pickRandomVariant({
-        id: 'test-id',
-        variants: [
-          { id: 'a', value: 'a' },
-          { id: 'b', value: 'b' },
-        ],
-        enabled: false,
-        default: 'c',
-      })
-    }).toThrow('No default variant found')
+  test('returns no result when default value is not defined', () => {
+    const result = resolveABTestVariant({
+      id: 'test-id',
+      variants: [
+        { id: 'a', value: 'a' },
+        { id: 'b', value: 'b' },
+      ],
+      enabled: false,
+    })
+
+    expect(result).toEqual({ enabled: false, result: undefined })
   })
 })

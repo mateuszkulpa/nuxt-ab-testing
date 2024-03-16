@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils'
 import ABTest from '~/src/runtime/components/ABTest.vue'
 
 vi.mock('~/src/runtime/composables/useABTest', () => ({
-  useABTest: vi.fn(() => ({ id: 'variant-a', value: 'Variant A' })),
+  useABTest: vi.fn(() => ({ enabled: true, result: { id: 'variant-a', value: 'Variant A' } })),
 }))
 
 describe('ABTest.vue', async () => {

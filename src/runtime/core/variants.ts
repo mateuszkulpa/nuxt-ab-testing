@@ -1,18 +1,18 @@
-import type { ABTest, JSONValue, Variant } from '~/src/runtime/types'
+import type { ABTest, ABTestResult, JSONValue, ResolvedVariant } from '~/src/runtime/types'
 
-export function pickRandomVariant<TVariantValue extends JSONValue>(
+export function resolveABTestVariant<TVariantValue extends JSONValue>(
   abTest: ABTest<TVariantValue>
-): Variant<TVariantValue> {
+): ABTestResult<TVariantValue> {
   if (abTest.enabled === false) {
     const defaultVariant = abTest.variants.find(({ id }) => id === abTest.default)
-    if (defaultVariant === undefined) {
-      throw new Error('No default variant found')
-    }
-    return defaultVariant
+    return { enabled: false, result: defaultVariant }
   }
 
   if (abTest.variants.every(variant => variant.weight === undefined)) {
-    return abTest.variants[Math.floor(Math.random() * abTest.variants.length)]
+    return {
+      enabled: true,
+      result: abTest.variants[Math.floor(Math.random() * abTest.variants.length)],
+    }
   }
 
   if (abTest.variants.some(variant => variant.weight === undefined)) {
@@ -31,7 +31,7 @@ export function pickRandomVariant<TVariantValue extends JSONValue>(
   for (const variant of abTest.variants) {
     cumulativeWeight += variant.weight!
     if (randomNumber <= cumulativeWeight) {
-      return variant
+      return { enabled: true, result: variant }
     }
   }
   // TODO: normalize weights and show warning if sum of weights is not 1
