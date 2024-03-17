@@ -2,6 +2,7 @@ export default defineNuxtConfig({
   modules: ['../../../src/module'],
   // @ts-ignore
   abTesting: {
+    variantMaxAge: 60,
     tests: [
       {
         id: 'header',

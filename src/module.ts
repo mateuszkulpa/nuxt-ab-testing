@@ -20,6 +20,12 @@ export interface ModuleOptions {
    */
   persistVariants: boolean
   /**
+   * Specifies the maximum age (in seconds) for the persistence cookie.
+   *
+   * @default 2592000 (30 days)
+   */
+  variantMaxAge: number
+  /**
    * List of A/B tests.
    * This will be used to automatically generate components and composables
    *
@@ -38,6 +44,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     persistVariants: true,
+    variantMaxAge: 30 * 24 * 60 * 60, // 30 days
     tests: [],
   },
   async setup(options, nuxt) {
@@ -91,6 +98,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.options.runtimeConfig.public.abTesting = {
       persistVariants: options.persistVariants,
+      variantMaxAge: options.variantMaxAge,
     }
   },
 })
