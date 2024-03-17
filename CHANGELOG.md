@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.9
+
+[compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.8...v0.0.9)
+
+### 🚀 Enhancements
+
+- Add support for custom maximum age for variant persistence ([939936b](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/939936b))
+
+### ❤️ Contributors
+
+- Mateusz Kulpa ([@mateuszkulpa](http://github.com/mateuszkulpa))
+
 ## v0.0.8
 
 [compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.7...v0.0.8)

@@ -1,6 +1,6 @@
 {
   "name": "nuxt-ab-testing",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Nuxt module designed to seamlessly integrate A/B testing",
   "repository": "mateuszkulpa/nuxt-ab-testing",
   "license": "MIT",
