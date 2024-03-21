@@ -64,6 +64,26 @@
 
     <hr />
 
+    <h2>Component with disabled test</h2>
+
+    <ABTest
+      id="disabled-test"
+      :enabled="false"
+      :variants="[
+        { id: 'a', value: '10%' },
+        { id: 'b', value: '90%' },
+      ]"
+    >
+      <template #a="{ value }">
+        {{ value }}
+      </template>
+      <template #b="{ value }">
+        {{ value }}
+      </template>
+    </ABTest>
+
+    <hr />
+
     <h2>Composable</h2>
     <div v-if="composableResult.enabled">variant: {{ composableResult.result.value }}</div>
   </div>

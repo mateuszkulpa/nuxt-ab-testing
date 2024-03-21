@@ -3,14 +3,24 @@ import { useABTest } from '../composables/useABTest'
 import type { JSONValue, Variant } from '../types'
 import { useSlots } from '#imports'
 
-const props = defineProps<{
-  id: string
-  variants: Variant<TVariantValue>[]
-}>()
+const props = withDefaults(
+  defineProps<{
+    id: string
+    variants: Variant<TVariantValue>[]
+    enabled?: boolean
+    default?: string
+  }>(),
+  {
+    enabled: undefined,
+    default: undefined,
+  }
+)
 
-const { enabled, result } = useABTest<TVariantValue>({
+const { result } = useABTest<TVariantValue>({
   id: props.id,
   variants: props.variants,
+  enabled: props.enabled,
+  default: props.default,
 })
 
 const slots = useSlots()
@@ -23,7 +33,8 @@ props.variants.forEach(variant => {
 </script>
 
 <template>
-  <template v-if="enabled">
+  {{ result }}
+  <template v-if="result !== undefined">
     <template v-for="variant in variants" :key="variant.id">
       <template v-if="result.id === variant.id">
         <slot :name="variant.id" v-bind="variant" />
