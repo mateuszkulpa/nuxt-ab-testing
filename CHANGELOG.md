@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.0.10
+
+[compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.9...v0.0.10)
+
+### 🚀 Enhancements
+
+- Support `enabled` and `default` props in ABTest component ([6f6a327](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/6f6a327))
+
+### 📖 Documentation
+
+- Add ABTest docs ([fcf6578](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/fcf6578))
+- Add module configuration docs ([65db11f](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/65db11f))
+
+### 🏡 Chore
+
+- Bump nuxt to version 3.11.0 ([95c2b7a](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/95c2b7a))
+- Bump dependencies ([4afb918](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/4afb918))
+
+### ❤️ Contributors
+
+- Mateusz Kulpa ([@mateuszkulpa](http://github.com/mateuszkulpa))
+
 ## v0.0.9
 
 [compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.8...v0.0.9)
