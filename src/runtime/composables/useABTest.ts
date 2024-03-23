@@ -9,6 +9,11 @@ export function useABTest<TVariantValue extends JSONValue>(
 ): ABTestResult<TVariantValue> {
   const storageId = `${STORAGE_KEY_PREFIX}:${abTest.id}`
 
+  if (abTest.enabled === false) {
+    const defaultVariant = abTest.variants.find(({ id }) => id === abTest.default)
+    return { enabled: false, result: defaultVariant }
+  }
+
   const runtimeConfig = useRuntimeConfig()
   const { persistVariants, variantMaxAge } = runtimeConfig.public.abTesting
 

@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'vitest'
+import { useABTest } from '~/src/runtime/composables/useABTest'
 import { resolveABTestVariant } from '~/src/runtime/core/variants'
 
 describe('useABTest', () => {
@@ -32,7 +33,7 @@ describe('useABTest', () => {
   )
 
   test('returns default variant when ab test is not enabled', () => {
-    const result = resolveABTestVariant({
+    const result = useABTest({
       id: 'test-id',
       variants: [
         { id: 'a', value: 'a' },
@@ -46,7 +47,7 @@ describe('useABTest', () => {
   })
 
   test('returns no result when default value is not defined', () => {
-    const result = resolveABTestVariant({
+    const result = useABTest({
       id: 'test-id',
       variants: [
         { id: 'a', value: 'a' },

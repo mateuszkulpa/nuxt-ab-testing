@@ -3,11 +3,6 @@ import type { ABTest, ABTestResult, JSONValue } from '~/src/runtime/types'
 export function resolveABTestVariant<TVariantValue extends JSONValue>(
   abTest: ABTest<TVariantValue>
 ): ABTestResult<TVariantValue> {
-  if (abTest.enabled === false) {
-    const defaultVariant = abTest.variants.find(({ id }) => id === abTest.default)
-    return { enabled: false, result: defaultVariant }
-  }
-
   if (abTest.variants.every(variant => variant.weight === undefined)) {
     return {
       enabled: true,
