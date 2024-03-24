@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.0.11
+
+[compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.10...v0.0.11)
+
+### 🚀 Enhancements
+
+- Respect the enabled flag even if the selected variant is already stored ([56e1d3c](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/56e1d3c))
+- Improve type checking of the default variant identifier using `NoInfer` utility type ([27e2e19](https://github.com/mateuszkulpa/nuxt-ab-testing/commit/27e2e19))
+
+### ❤️ Contributors
+
+- Mateusz Kulpa ([@mateuszkulpa](http://github.com/mateuszkulpa))
+
 ## v0.0.10
 
 [compare changes](https://github.com/mateuszkulpa/nuxt-ab-testing/compare/v0.0.9...v0.0.10)
