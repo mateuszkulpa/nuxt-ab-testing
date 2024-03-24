@@ -58,4 +58,19 @@ describe('useABTest', () => {
 
     expect(result).toEqual({ enabled: false, result: undefined })
   })
+
+  test("doesn't return default value when default is wrong identifier", () => {
+    const result = useABTest({
+      id: 'test-id',
+      variants: [
+        { id: 'a', value: 'a' },
+        { id: 'b', value: 'b' },
+      ],
+      enabled: false,
+      // @ts-expect-error
+      default: 'c',
+    })
+
+    expect(result).toEqual({ enabled: false, result: undefined })
+  })
 })

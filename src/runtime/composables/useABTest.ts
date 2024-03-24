@@ -4,8 +4,8 @@ import { resolveABTestVariant } from '../core/variants'
 
 const STORAGE_KEY_PREFIX = 'ab-test'
 
-export function useABTest<TVariantValue extends JSONValue>(
-  abTest: ABTest<TVariantValue>
+export function useABTest<TVariantKey extends string, TVariantValue extends JSONValue>(
+  abTest: ABTest<TVariantKey, TVariantValue>
 ): ABTestResult<TVariantValue> {
   const storageId = `${STORAGE_KEY_PREFIX}:${abTest.id}`
 

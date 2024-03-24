@@ -1,7 +1,7 @@
 import type { ABTest, ABTestResult, JSONValue } from '~/src/runtime/types'
 
 export function resolveABTestVariant<TVariantValue extends JSONValue>(
-  abTest: ABTest<TVariantValue>
+  abTest: ABTest<string, TVariantValue>
 ): ABTestResult<TVariantValue> {
   if (abTest.variants.every(variant => variant.weight === undefined)) {
     return {

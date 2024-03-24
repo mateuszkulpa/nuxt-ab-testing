@@ -14,8 +14,8 @@ export interface JSONObject {
 }
 export type JSONArray = JSONValue[]
 
-export interface Variant<TVariantValue extends JSONValue> {
-  id: string
+export interface Variant<TVariantKey extends string, TVariantValue extends JSONValue> {
+  id: TVariantKey
   value: TVariantValue
   weight?: number
 }
@@ -39,9 +39,12 @@ export type ABTestResult<TVariantValue extends JSONValue> =
   | ABTestResultEnabled<TVariantValue>
   | ABTestResultDisabled<TVariantValue>
 
-export interface ABTest<TVariantValue extends JSONValue = JSONValue> {
+export interface ABTest<
+  TVariantKey extends string = string,
+  TVariantValue extends JSONValue = JSONValue,
+> {
   id: string
-  variants: Variant<TVariantValue>[]
+  variants: Variant<TVariantKey, TVariantValue>[]
   /**
    * Indicates whether the A/B test is enabled or not.
    * By default, the test is considered to be enabled.
@@ -53,5 +56,5 @@ export interface ABTest<TVariantValue extends JSONValue = JSONValue> {
    * The id of the default variant to use when the test is not enabled (`enabled` is `false`).
    * This property is required when `enabled` is `false` to specify which variant should be considered the default.
    */
-  default?: string
+  default?: NoInfer<TVariantKey>
 }

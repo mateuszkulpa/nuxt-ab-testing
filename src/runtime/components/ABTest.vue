@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="TVariantValue extends JSONValue">
+<script setup lang="ts" generic="TVariantKey extends string, TVariantValue extends JSONValue">
 import { useABTest } from '../composables/useABTest'
 import type { JSONValue, Variant } from '../types'
 import { useSlots } from '#imports'
@@ -6,9 +6,9 @@ import { useSlots } from '#imports'
 const props = withDefaults(
   defineProps<{
     id: string
-    variants: Variant<TVariantValue>[]
+    variants: Variant<TVariantKey, TVariantValue>[]
     enabled?: boolean
-    default?: string
+    default?: NoInfer<TVariantKey>
   }>(),
   {
     enabled: undefined,
@@ -16,7 +16,7 @@ const props = withDefaults(
   }
 )
 
-const { result } = useABTest<TVariantValue>({
+const { result } = useABTest({
   id: props.id,
   variants: props.variants,
   enabled: props.enabled,
