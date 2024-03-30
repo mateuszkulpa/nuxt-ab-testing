@@ -10,6 +10,8 @@ import {
 import type { ABTest } from './runtime/types'
 import { pascalCase } from 'scule'
 import path from 'pathe'
+import { addCustomTab } from '@nuxt/devtools-kit'
+import { h } from 'vue'
 
 export interface ModuleOptions {
   /**
@@ -32,6 +34,12 @@ export interface ModuleOptions {
    * @default []
    */
   tests: ABTest[]
+  /**
+   * Enables module tab in Nuxt DevTools.
+   *
+   * @default true
+   */
+  devtools: boolean
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -46,6 +54,7 @@ export default defineNuxtModule<ModuleOptions>({
     persistVariants: true,
     variantMaxAge: 30 * 24 * 60 * 60, // 30 days
     tests: [],
+    devtools: true,
   },
   async setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
@@ -98,7 +107,18 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.options.runtimeConfig.public.abTesting = {
       persistVariants: options.persistVariants,
-      variantMaxAge: options.variantMaxAge,
+    }
+
+    if (options.devtools) {
+      addCustomTab({
+        name: 'nuxt-ab-testing',
+        title: 'A/B Testing viewer',
+        icon: 'ant-design:experiment-outlined',
+        view: {
+          type: 'vnode',
+          vnode: h('div', { className: 'p-4' }, h('h1', 'Nuxt A/B Testing viewer')),
+        },
+      })
     }
   },
 })
