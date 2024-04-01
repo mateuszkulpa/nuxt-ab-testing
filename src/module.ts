@@ -10,8 +10,6 @@ import {
 import type { ABTest } from './runtime/types'
 import { pascalCase } from 'scule'
 import path from 'pathe'
-import { addCustomTab } from '@nuxt/devtools-kit'
-import { h } from 'vue'
 
 export interface ModuleOptions {
   /**
