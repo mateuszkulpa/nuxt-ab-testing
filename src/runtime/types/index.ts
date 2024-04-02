@@ -1,4 +1,9 @@
 declare module 'nuxt/schema' {
+  interface RuntimeConfig {
+    abTesting: {
+      tests: ABTest[]
+    }
+  }
   interface PublicRuntimeConfig {
     abTesting: {
       persistVariants: boolean

@@ -6,6 +6,7 @@ import {
   addTemplate,
   createResolver,
   defineNuxtModule,
+  addServerHandler,
 } from '@nuxt/kit'
 import type { ABTest } from './runtime/types'
 import { pascalCase } from 'scule'
@@ -55,7 +56,10 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     addImportsDir(resolver.resolve('./runtime/composables'))
-
+    addServerHandler({
+      route: '/_ab-testing/resolve-variant',
+      handler: resolver.resolve('./runtime/server/routes/resolve-variant.get'),
+    })
     const composables: string[] = []
 
     for (const test of options.tests) {
@@ -99,6 +103,9 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.runtimeConfig.public.abTesting = {
       persistVariants: options.persistVariants,
       variantMaxAge: options.variantMaxAge,
+    }
+    nuxt.options.runtimeConfig.abTesting = {
+      tests: options.tests,
     }
   },
 })
