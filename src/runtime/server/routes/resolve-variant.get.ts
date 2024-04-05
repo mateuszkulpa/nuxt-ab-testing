@@ -6,6 +6,7 @@ import {
   useStorage,
   parseCookies,
   setCookie,
+  setHeaders,
 } from '#imports'
 import { resolveABTestVariant } from '../../core/variants'
 import { z } from 'zod'
@@ -47,6 +48,7 @@ export default defineEventHandler(async event => {
   let persistenceKey = parseCookies(event)[COOKIE_PERSISTENCE_KEY]
   if (!persistenceKey) {
     persistenceKey = uuidv4()
+    setHeaders(event, { [COOKIE_PERSISTENCE_KEY]: persistenceKey })
     setCookie(event, COOKIE_PERSISTENCE_KEY, persistenceKey)
   }
 

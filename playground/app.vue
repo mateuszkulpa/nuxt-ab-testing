@@ -2,6 +2,10 @@
   <div>
     <h1>Nuxt A/B Testing module playground</h1>
 
+    <RemoteABTest id="theme">
+      <template #dark>dark</template>
+      <template #light>light</template>
+    </RemoteABTest>
     <hr />
 
     <h2>Component with inline variants</h2>
