@@ -11,13 +11,11 @@ import {
 import { resolveABTestVariant } from '../../core/variants'
 import { z } from 'zod'
 import { v4 as uuidv4 } from 'uuid'
+import { COOKIE_PERSISTENCE_KEY, STORAGE_BASE_KEY } from '../../utils/constants'
 
 const querySchema = z.object({
   id: z.string(),
 })
-
-const STORAGE_BASE_KEY = 'ab-testing'
-const COOKIE_PERSISTENCE_KEY = `nuxt-ab-testing`
 
 export default defineEventHandler(async event => {
   const runtimeConfig = useRuntimeConfig()

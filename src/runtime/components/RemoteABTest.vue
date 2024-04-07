@@ -1,12 +1,12 @@
 <script setup lang="ts" generic="TVariantKey extends string, TVariantValue extends JSONValue">
 import type { JSONValue } from '../types'
+import { COOKIE_PERSISTENCE_KEY } from '../utils/constants'
 import { useFetch, useSlots, useRequestHeaders, useCookie } from '#imports'
 
 const props = defineProps<{
   id: string
 }>()
 
-const COOKIE_PERSISTENCE_KEY = `nuxt-ab-testing`
 const headers = useRequestHeaders(['cookie'])
 const cookie = useCookie(COOKIE_PERSISTENCE_KEY)
 
