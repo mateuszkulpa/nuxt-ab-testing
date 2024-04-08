@@ -10,7 +10,7 @@ import {
 } from '#imports'
 import { resolveABTestVariant } from '../../core/variants'
 import { z } from 'zod'
-import { v4 as uuidv4 } from 'uuid'
+import { nanoid } from 'nanoid'
 import { COOKIE_PERSISTENCE_KEY, STORAGE_BASE_KEY } from '../../utils/constants'
 
 const querySchema = z.object({
@@ -45,7 +45,7 @@ export default defineEventHandler(async event => {
   const storage = useStorage(STORAGE_BASE_KEY)
   let persistenceKey = parseCookies(event)[COOKIE_PERSISTENCE_KEY]
   if (!persistenceKey) {
-    persistenceKey = uuidv4()
+    persistenceKey = nanoid()
     setHeaders(event, { [COOKIE_PERSISTENCE_KEY]: persistenceKey })
     setCookie(event, COOKIE_PERSISTENCE_KEY, persistenceKey)
   }
