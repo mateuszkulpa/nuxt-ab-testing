@@ -6,6 +6,14 @@
       <template #dark>dark</template>
       <template #light>light</template>
     </RemoteABTest>
+
+    <hr />
+
+    <RemoteABTest id="theme">
+      <template #dark>dark</template>
+      <template #light>light</template>
+    </RemoteABTest>
+
     <hr />
 
     <h2>Component with inline variants</h2>

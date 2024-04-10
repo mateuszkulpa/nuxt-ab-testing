@@ -1,23 +1,25 @@
 <script setup lang="ts" generic="TVariantKey extends string, TVariantValue extends JSONValue">
 import type { JSONValue } from '../types'
 import { COOKIE_PERSISTENCE_KEY } from '../utils/constants'
-import { useFetch, useSlots, useRequestHeaders, useCookie } from '#imports'
+import { useFetch, useSlots, useCookie, useState } from '#imports'
+import { nanoid } from 'nanoid'
 
 const props = defineProps<{
   id: string
 }>()
 
-const headers = useRequestHeaders(['cookie'])
-const cookie = useCookie(COOKIE_PERSISTENCE_KEY)
+// NOTE: `useState` is required to generate a same key across multiple components
+const persistenceKey = useState(COOKIE_PERSISTENCE_KEY, () => nanoid())
+const cookie = useCookie(COOKIE_PERSISTENCE_KEY, {
+  default() {
+    return persistenceKey.value
+  },
+})
 
 const { data } = await useFetch(`/_ab-testing/resolve-variant`, {
   query: { id: props.id },
-  headers: headers,
-  onResponse({ response }) {
-    const key = response.headers.get(COOKIE_PERSISTENCE_KEY)
-    if (import.meta.server && key) {
-      cookie.value = key
-    }
+  headers: {
+    cookie: `${COOKIE_PERSISTENCE_KEY}=${cookie.value}`,
   },
 })
 
