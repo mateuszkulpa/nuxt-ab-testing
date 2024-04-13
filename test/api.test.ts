@@ -21,4 +21,10 @@ describe('api', async () => {
     })
     expect(setCookieHeader).toContain('nuxt-ab-testing')
   })
+
+  it('returns unprocessable entity error when no id passed', async () => {
+    const response = await fetch('/_ab-testing/resolve-variant')
+
+    expect(response.status).toBe(422)
+  })
 })
