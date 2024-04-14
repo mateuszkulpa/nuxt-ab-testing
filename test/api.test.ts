@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { fetch, setup } from '@nuxt/test-utils/e2e'
 import { fileURLToPath, URL } from 'node:url'
+import { nanoid } from 'nanoid'
 
 describe('api', async () => {
   await setup({
@@ -20,6 +21,18 @@ describe('api', async () => {
       value: expect.stringMatching(/([ab])/),
     })
     expect(setCookieHeader).toContain('nuxt-ab-testing')
+  })
+
+  it('does not return persistence key in cookie when it is passed', async () => {
+    const persistenceKey = nanoid()
+    const response = await fetch('/_ab-testing/resolve-variant', {
+      headers: {
+        cookie: `nuxt-ab-testing=${persistenceKey}`,
+      },
+    })
+
+    const responseCookie = response.headers.get('set-cookie')
+    expect(responseCookie).toBe(null)
   })
 
   it('returns unprocessable entity error when no id passed', async () => {
