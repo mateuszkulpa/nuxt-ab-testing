@@ -11,10 +11,10 @@
   "devDependencies": {
     "@nuxt-themes/docus": "latest",
     "@nuxt/devtools": "latest",
-    "@nuxt/eslint-config": "^0.2.0",
-    "@types/node": "^20.11.22",
+    "@nuxt/eslint-config": "^0.3.7",
+    "@types/node": "^20.12.7",
     "eslint": "^8.57.0",
-    "nuxt": "^3.10.3",
+    "nuxt": "^3.11.2",
     "nuxt-content-twoslash": "^0.0.10"
   }
 }
